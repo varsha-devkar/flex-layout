@@ -1,0 +1,103 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/*priprity specificity>>>>  100>10>1*/
+/* 100 *no of Ids + 10 *no of class + 1* no of tags*/
+.container{
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+.header{
+    background-color: #000;
+    color: #fff;
+    height: 60px;
+}
+.row {
+    display: flex;
+}
+
+/* .col-4, .col-8{
+    padding: 0 15px;
+} */
+
+[class ^="col-"]{
+    padding: 0 15px;
+}
+
+.col-4 {
+    width: calc(100% * 4 / 12);
+}
+
+.col-8 {
+    width: calc(100% * 8 / 12);
+}
+.text-right{
+    text-align: right;
+}
+.navbar {
+    list-style: none;
+    display:inline;      /*make list width will be less as equal to content . child width will be ocupy as equal to parent width*/
+}
+.navbar li{
+    display: inline-block;          /*make list in one line and width will be less as equal to content*/
+}
+
+.navbar a:hover,
+.navbar a:focus,
+.navbar a:active{
+    background-color: orange;
+}
+
+.navbar a, .logo{
+    height: 60px;
+    display: inline-block;
+    color: #fff;
+    line-height: 60px;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 0 10px;
+}
+.navbar a{
+    display: block;
+}
+/* above code for desktop navbar */ 
+.toggleMenu{
+    display: none;
+}
+
+ @media all and (max-width: 600px){
+    .header{
+        height: auto; /*heigt as per content*/
+    }
+    .row{
+        flex-direction: column;    /*mobile view show one col in one row*/
+    }
+    .navbar {
+        display: none;
+    }
+    .navbar.visible{
+        display: block;
+    }
+    .toggleMenu{
+        /* display: inline-block; */
+        display: block;
+        color: #fff;
+        font-size: 20px;
+        float: right;
+        height: 60px;
+        line-height: 72px
+    }
+    /* .col-4, .col-8  {
+        width:100%;
+    } */
+    [class ^="col-"]{
+        min-width:100%;
+    }
+    .navbar li{
+        display: block;          /*make li in seperate line*/
+        text-align: left;
+    }
+ }
